@@ -19,29 +19,18 @@
   <!-- Theme CSS -->
   <link href="css/freelancer.min.css" rel="stylesheet">
 
-  <!-- update the version number as needed -->
-  <script defer src="/__/firebase/6.6.1/firebase-app.js"></script>
-  <!-- include only the Firebase features as you need -->
-  <script defer src="/__/firebase/6.6.1/firebase-auth.js"></script>
-  <script defer src="/__/firebase/6.6.1/firebase-database.js"></script>
-  <script defer src="/__/firebase/6.6.1/firebase-messaging.js"></script>
-  <script defer src="/__/firebase/6.6.1/firebase-storage.js"></script>
-  <!-- initialize the SDK after all desired features are loaded -->
-  <script defer src="/__/firebase/init.js"></script>
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/6.6.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/6.6.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/6.6.1/firebase-database.js"></script>
+    <script defer src="/__/firebase/6.6.1/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/6.6.1/firebase-storage.js"></script>
+    <script defer src="/__/firebase/6.6.1/firebase-functions.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
 
-      <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Contact Form JavaScript -->
-  <script src="js/jqBootstrapValidation.js"></script>
-  <script src="js/contact_me.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="js/freelancer.min.js"></script>
 
 </head>
 
@@ -463,7 +452,19 @@
       </div>
     </div>
   </div>
+      <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/freelancer.min.js"></script>
   <script type="text/javascript" src="jquery.qrcode.min.js"></script>
   <script>
     $(document).ready(function () {
@@ -577,7 +578,15 @@
 };
 jQuery('#qrcode').qrcode({
     text  : "hapoo"
-  }); 
+  });
+  var getHash = firebase.functions().httpsCallable('getHash');
+getHash().then(function(result) {
+  // Read result of the Cloud Function.
+  var sanitizedMessage = result.data.text;
+  console.log(sanitizedMessage);
+  // ...
+});
+ 
 })
 </script>
 
