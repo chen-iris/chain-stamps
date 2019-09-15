@@ -104,7 +104,7 @@
 
       <!-- Portfolio Section Heading -->
       <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Generate QR Code</h2>
-      <div id="qrcode"></div>
+      <div id="qrcode" style="text-align:center"></div>
 
     </div>
   </section>
@@ -483,7 +483,9 @@ function dataURItoBlob(dataURI) {
 
 
 };
-jQuery('#qrcode').qrcode("this plugin is great");
+jQuery('#qrcode').qrcode({
+    text  : "hapoo"
+  }); 
 })
 </script>
 
