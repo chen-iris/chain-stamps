@@ -527,9 +527,20 @@
 
 
       };
-    })
-  </script>
-
+jQuery('#qrcode').qrcode({
+    text  : "hapoo"
+  });
+  var getHash = firebase.functions().httpsCallable('getHash');
+getHash().then(function(result) {
+  // Read result of the Cloud Function.
+  var sanitizedMessage = result.data.text;
+  console.log(sanitizedMessage);
+  // ...
+});
+ 
+})
+  
+</script>
   <script src="js/jsQR.js"></script>
   <script>
     function convertURIToImageData(URI) {
@@ -572,20 +583,6 @@
 
     function imageIsLoaded(e) { alert(e); }
   </script>
-};
-jQuery('#qrcode').qrcode({
-    text  : "hapoo"
-  });
-  var getHash = firebase.functions().httpsCallable('getHash');
-getHash().then(function(result) {
-  // Read result of the Cloud Function.
-  var sanitizedMessage = result.data.text;
-  console.log(sanitizedMessage);
-  // ...
-});
- 
-})
-</script>
 
 </body>
 
