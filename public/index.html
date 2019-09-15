@@ -587,6 +587,7 @@
         var that = this;
         console.log("hi");
         if (this.files && this.files[0]) {
+          console.log(this.files);
           var img = document.getElementById('uploadedImg');  // $('img')[0]
           console.log(img);
           convertURIToImageData(URL.createObjectURL(this.files[0])).then(function (imageData) {
