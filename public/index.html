@@ -623,7 +623,7 @@
                             // Read result of the Cloud Function.
                             var sanitizedMessage = result.data.time;
                             // ...
-                                          outputData2.innerText = new Date(sanitizedMessage);
+                                          outputData2.innerText = new Date(sanitizedMessage*1000);
                           }).catch(console.error);
           };
 		
@@ -644,7 +644,7 @@
                             // Read result of the Cloud Function.
                             var sanitizedMessage = result.data.time;
                             // ...
-                                          outputData.innerText = new Date(sanitizedMessage);
+                                          outputData.innerText = new Date(sanitizedMessage*1000);
                           }).catch(console.error);
 
               outputMessage.hidden = true;
