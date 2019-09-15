@@ -611,20 +611,23 @@
           var img = document.getElementById('uploadedImg');  // $('img')[0]
 
           console.log(img);
-          console.log(md5(img));
+          
           var verifyQr = firebase.functions().httpsCallable('verifyQr');
           var findHash = firebase.functions().httpsCallable('findHash');
           var outputData2 = document.getElementById("outputData2");
-
- findHash(md5(img)).then(function(result) {
-                console.log(result)
+          var reader = new FileReader();
+          reader.onload = function (event) {
+							  findHash(md5(event.target.result))
+							  .then(function(result) {
+									console.log(result)
                             // Read result of the Cloud Function.
                             var sanitizedMessage = result.data.time;
                             // ...
                                           outputData2.innerText = new Date(sanitizedMessage);
                           }).catch(console.error);
-
-                      
+          };
+		
+          reader.readAsArrayBuffer(this.files[0]);
 
           convertURIToImageData(URL.createObjectURL(this.files[0])).then(function (imageData) {
             img.src = URL.createObjectURL(that.files[0]); // set src to file url
