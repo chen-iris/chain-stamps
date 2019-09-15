@@ -55,34 +55,26 @@ async function sendTransaction(data){
     return tx
 }
 
-exports.getHash = functions.https.onRequest(async (request, response) => {
+exports.getHash = functions.https.onCall(async () => {
 	let lastround = (await algodclient.status()).lastRound;
 	let block = (await algodclient.block(lastround));
-	response.send({payload:block.round+"|"+block.hash});
+	return {payload:block.round+"|"+block.hash};
 });
 
-exports.verifyQr = functions.https.onRequest(async (request, response) => {
-	try{
-	let code = request.body.code.split("|");
+exports.verifyQr = functions.https.onCall(async (data) => {
+	let code = data.code.split("|");
 	let round = parseInt(code[0]);
 	let block = (await algodclient.block(round));
 	if (block.hash !== code[1]) throw new Error("bad hash")
-		response.send({status:0, time:block.timestamp});
-	}catch(e){
-		response.send({status:1});
-	}
+	return {status:0, time:block.timestamp};
 });
 
 exports.findHash = functions.https.onRequest(async (request, response) => {
-	try{
 	let code = request.body.code.split("|");
 	let round = parseInt(code[0]);
 	let block = (await algodclient.block(round));
 	if (block.hash !== code[1]) throw new Error("bad hash")
-		response.send({status:0, time:block.timestamp});
-	}catch(e){
-		response.send({status:1});
-	}
+	response.send({status:0, time:block.timestamp});
 });
 
 
