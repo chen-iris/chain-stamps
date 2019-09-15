@@ -414,6 +414,7 @@
   <!-- Custom scripts for this template -->
   <script src="js/freelancer.min.js"></script>
   <script>
+    $( document ).ready(function() {
           function hasGetUserMedia() {
   return !!(navigator.mediaDevices &&
     navigator.mediaDevices.getUserMedia);
@@ -434,7 +435,7 @@ const canvas = document.createElement('canvas');
 
 captureVideoButton.onclick = function() {
   navigator.mediaDevices.getUserMedia(constraints).
-    then(handleSuccess).catch(handleError);
+    then(handleSuccess).catch(console.log);
 };
 
 screenshotButton.onclick = video.onclick = function() {
@@ -445,7 +446,7 @@ screenshotButton.onclick = video.onclick = function() {
   img.src = canvas.toDataURL('image/webp');
   file =  dataURItoBlob(canvas.toDataURL('image/webp'));
   //bugged
-  ref.put(file).then(function(snapshot) {
+  ref.child(Date.now()+Math.random()+"").put(file).then(function(snapshot) {
   console.log('Uploaded a blob or file!');
 });
 
@@ -475,7 +476,8 @@ function dataURItoBlob(dataURI) {
     return new Blob([ab], {type: mimeString});
 
 
-}
+};
+})
 </script>
 
 </body>
