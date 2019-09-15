@@ -2,10 +2,10 @@ const functions = require('firebase-functions');
 
 const algosdk = require('algosdk');
 const encode = require('algosdk/src/encoding/address');
-
+const axios = require('axios');
 //Retrieve the token, server and port values for your installation in the algod.net
 //and algod.token files within the data directory
-const atoken = {'X-API-Key':"SYnCl5Mzrt3H2k6OoN9ca5IJcQ7pe9MMAk3t7uPh"};
+const atoken = {'X-API-Key':"wJArTZ9tZm7ouYHhWjA6m4feizOojm1h29vUR49L"};
 const aserver = "https://testnet-algorand.api.purestake.io/ps1";
 
 const account = {
@@ -23,7 +23,7 @@ const account = {
 const algodclient = new algosdk.Algod(atoken, aserver, "");
 
 const post_txn_token = {    
-    'X-API-Key': 'SYnCl5Mzrt3H2k6OoN9ca5IJcQ7pe9MMAk3t7uPh',
+    'X-API-Key': 'wJArTZ9tZm7ouYHhWjA6m4feizOojm1h29vUR49L',
     'content-type' : 'application/x-binary'
 }
 const post_algodclient = new algosdk.Algod(post_txn_token, aserver, ""); // Use only for sendRawTransaction() 
@@ -70,12 +70,13 @@ exports.verifyQr = functions.https.onCall(async (data) => {
 	return {status:0, time:block.timestamp};
 });
 
-exports.findHash = functions.https.onRequest(async (request, response) => {
-	let code = request.body.code.split("|");
-	let round = parseInt(code[0]);
-	let block = (await algodclient.block(round));
-	if (block.hash !== code[1]) throw new Error("bad hash")
-	response.send({status:0, time:block.timestamp});
+exports.findHash = functions.https.onCall(async (data) => {
+	let transactions = (await axios(`https://api.testnet.algoexplorer.io/v1/account/${account.addr}/transactions/latest/100`)).data
+	let hash = Buffer.from(data, "hex").toString("base64");
+	for(var i =0;i<transactions.length;i++){
+		if(transactions[i].noteb64 === hash) return {status:0, time:transactions[i].timestamp};
+	}
+	throw new Error("bad hash")
 });
 
 
