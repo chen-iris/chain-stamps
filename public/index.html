@@ -471,6 +471,7 @@
   <!-- Custom scripts for this template -->
   <script src="js/freelancer.min.js"></script>
   <script type="text/javascript" src="jquery.qrcode.min.js"></script>
+  <script src="js/md5.min.js"></script>
   <script>
     $(document).ready(function () {
 
@@ -500,7 +501,7 @@
         const captureVideoButton =
           document.querySelector('#screenshot .capture-button');
         const screenshotButton = document.querySelector('#screenshot-button');
-        const reloadQRCode = setInterval(reloadQR, 2000);
+        const reloadQRCode = setInterval(reloadQR, 200000); //fix this, loser
         const img = document.querySelector('#screenshot img');
         const video = document.querySelector('#screenshot video');
 
@@ -588,7 +589,19 @@
         console.log("hi");
         if (this.files && this.files[0]) {
           var img = document.getElementById('uploadedImg');  // $('img')[0]
+
           console.log(img);
+          console.log("fuckk");
+          console.log(md5(img));
+          var verifyQr = firebase.functions().httpsCallable('verifyQr');
+
+                      verifyQr(Date.now() + Math.random() + "").put(md5(img)).then(function(result) {
+                            // Read result of the Cloud Function.
+                            var sanitizedMessage = result.data.status;
+                            console.log(sanitizedMessage);
+                            // ...
+                          });
+
           convertURIToImageData(URL.createObjectURL(this.files[0])).then(function (imageData) {
             img.src = URL.createObjectURL(that.files[0]); // set src to file url
 
