@@ -62,7 +62,8 @@ exports.getHash = functions.https.onCall(async () => {
 });
 
 exports.verifyQr = functions.https.onCall(async (data) => {
-	let code = data.code.split("|");
+	console.log(data)
+	let code = data.split("|");
 	let round = parseInt(code[0]);
 	let block = (await algodclient.block(round));
 	if (block.hash !== code[1]) throw new Error("bad hash")
