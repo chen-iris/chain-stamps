@@ -102,7 +102,8 @@
       <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Generate QR Code</h2>
       <br>
       <div id="qrcode" style="text-align:center"></div>
-
+      <br>
+      <div style="text-align:center; "> <p> <button id="reload-button">Reload</button> </p> </div>
     </div>
   </section>
 
@@ -469,6 +470,7 @@
   <script type="text/javascript" src="jquery.qrcode.min.js"></script>
   <script>
     $(document).ready(function () {
+        var getHash = firebase.functions().httpsCallable('getHash');
       function hasGetUserMedia() {
         return !!(navigator.mediaDevices &&
           navigator.mediaDevices.getUserMedia);
@@ -482,6 +484,7 @@
         const captureVideoButton =
           document.querySelector('#screenshot .capture-button');
         const screenshotButton = document.querySelector('#screenshot-button');
+        const reloadButton = document.querySelector('#reload-button');
         const img = document.querySelector('#screenshot img');
         const video = document.querySelector('#screenshot video');
 
@@ -492,6 +495,18 @@
             then(handleSuccess).catch(console.log);
         };
 
+        reloadButton.onclick = function () {
+            getHash().then(function(result) {
+  // Read result of the Cloud Function.
+  var sanitizedMessage = result.data.payload;
+  $('#qrcode').empty();
+  jQuery('#qrcode').qrcode({
+    text  : sanitizedMessage
+  });
+  console.log(sanitizedMessage);
+  // ...
+});
+        };
         screenshotButton.onclick = video.onclick = function () {
           canvas.width = video.videoWidth;
           canvas.height = video.videoHeight;
@@ -531,13 +546,13 @@
 
 
       };
-jQuery('#qrcode').qrcode({
-    text  : "hapoo"
-  });
-  var getHash = firebase.functions().httpsCallable('getHash');
-getHash().then(function(result) {
+
+  getHash().then(function(result) {
   // Read result of the Cloud Function.
-  var sanitizedMessage = result.data.text;
+  var sanitizedMessage = result.data.payload;
+  jQuery('#qrcode').qrcode({
+    text  : sanitizedMessage
+  });
   console.log(sanitizedMessage);
   // ...
 });
