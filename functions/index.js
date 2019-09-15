@@ -58,8 +58,33 @@ async function sendTransaction(data){
 exports.getHash = functions.https.onRequest(async (request, response) => {
 	let lastround = (await algodclient.status()).lastRound;
 	let block = (await algodclient.block(lastround));
-	response.send(block)
+	response.send({payload:block.round+"|"+block.hash});
 });
+
+exports.verifyQr = functions.https.onRequest(async (request, response) => {
+	try{
+	let code = request.body.code.split("|");
+	let round = parseInt(code[0]);
+	let block = (await algodclient.block(round));
+	if (block.hash !== code[1]) throw new Error("bad hash")
+		response.send({status:0, time:block.timestamp});
+	}catch(e){
+		response.send({status:1});
+	}
+});
+
+exports.findHash = functions.https.onRequest(async (request, response) => {
+	try{
+	let code = request.body.code.split("|");
+	let round = parseInt(code[0]);
+	let block = (await algodclient.block(round));
+	if (block.hash !== code[1]) throw new Error("bad hash")
+		response.send({status:0, time:block.timestamp});
+	}catch(e){
+		response.send({status:1});
+	}
+});
+
 
 exports.commitImage = functions.storage.object().onFinalize(async (object) => {
 	return sendTransaction(object.md5Hash)
