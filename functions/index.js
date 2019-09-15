@@ -5,25 +5,20 @@ const encode = require('algosdk/src/encoding/address');
 const axios = require('axios');
 //Retrieve the token, server and port values for your installation in the algod.net
 //and algod.token files within the data directory
-const atoken = {'X-API-Key':"wJArTZ9tZm7ouYHhWjA6m4feizOojm1h29vUR49L"};
+const atoken = {'X-API-Key':"<>"};
 const aserver = "https://testnet-algorand.api.purestake.io/ps1";
 
 const account = {
-  'addr': 'YVNVFBHSQBFXCICTOGNSRXH5HDJGDI7ZX5UV7GOHPUO2EYFZFY4VHIGORE',
+  'addr': '<>',
   'sk': Uint8Array.from([
-    208, 211, 194, 143,  58, 118, 105, 199, 216,  46, 223,
-    209,  11, 144,  53, 138,  34, 111, 102, 228,  44,  60,
-     46,  33, 120, 238, 122, 224,  43,  91, 154, 218, 197,
-     91,  82, 132, 242, 128,  75, 113,  32,  83, 113, 155,
-     40, 220, 253,  56, 210,  97, 163, 249, 191, 105,  95,
-    153, 199, 125,  29, 162,  96, 185,  46,  57
+   <>
   ])
 }
 
 const algodclient = new algosdk.Algod(atoken, aserver, "");
 
 const post_txn_token = {    
-    'X-API-Key': 'wJArTZ9tZm7ouYHhWjA6m4feizOojm1h29vUR49L',
+    'X-API-Key': '<>',
     'content-type' : 'application/x-binary'
 }
 const post_algodclient = new algosdk.Algod(post_txn_token, aserver, ""); // Use only for sendRawTransaction() 
