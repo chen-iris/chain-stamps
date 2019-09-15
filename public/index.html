@@ -136,11 +136,12 @@
         <br>
         <input type='file' />
         <br>
+        <hr>
         <img id="uploadedImg" src="#" alt="your image" width=100>
         <hr>
-        <div id="output">
+        <div class="alert alert-danger" id="output">
             <div id="outputMessage">No QR code detected.</div>
-            <div hidden><b>Data:</b> <span id="outputData"></span></div>
+            <div hidden><b>Date:</b> <span id="outputData"></span></div>
         </div>
       </div>
 
@@ -605,12 +606,22 @@
 
           convertURIToImageData(URL.createObjectURL(this.files[0])).then(function (imageData) {
             img.src = URL.createObjectURL(that.files[0]); // set src to file url
-
+            var outputContainer = document.getElementById("output");
+            var outputMessage = document.getElementById("outputMessage");
+            var outputData = document.getElementById("outputData");
             console.log(imageData.data, imageData.width, imageData.height);
             var QR = jsQR(imageData.data, imageData.width, imageData.height);
             if (QR) {
               console.log(QR);
               console.log(QR.data);
+              outputMessage.hidden = true;
+              outputData.parentElement.hidden = false;
+              outputContainer.classList = "alert alert-success";
+              console.log(outputData.parentElement.classList);
+              outputData.innerText = code.data;
+            } else {
+              outputMessage.hidden = false;
+              outputData.parentElement.hidden = true;
             }
           });
           //img.onload = imageIsLoaded; // optional onload event listener
