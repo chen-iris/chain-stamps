@@ -100,6 +100,7 @@
 
       <!-- Portfolio Section Heading -->
       <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Generate QR Code</h2>
+      <br>
       <div id="qrcode" style="text-align:center"></div>
 
     </div>
@@ -530,9 +531,20 @@
 
 
       };
-    })
-  </script>
-
+jQuery('#qrcode').qrcode({
+    text  : "hapoo"
+  });
+  var getHash = firebase.functions().httpsCallable('getHash');
+getHash().then(function(result) {
+  // Read result of the Cloud Function.
+  var sanitizedMessage = result.data.text;
+  console.log(sanitizedMessage);
+  // ...
+});
+ 
+})
+  
+</script>
   <script src="js/jsQR.js"></script>
   <script>
     function convertURIToImageData(URI) {
@@ -553,19 +565,19 @@
 
     window.addEventListener('DOMContentLoaded', function () {
       document.querySelector('input[type="file"]').addEventListener('change', function () {
+        var that = this;
         console.log("hi");
         if (this.files && this.files[0]) {
           var img = document.getElementById('uploadedImg');  // $('img')[0]
           console.log(img);
-          img.src = URL.createObjectURL(this.files[0]); // set src to file url
-          console.log(img);
-          var URI = img.src;
-          convertURIToImageData(URI).then(function (imageData) {
-            console.log(imageData.data, img.width, img.height);
-            var QR = jsQR(imageData.data, img.width, img.height);
+          convertURIToImageData(URL.createObjectURL(this.files[0])).then(function (imageData) {
+            img.src = URL.createObjectURL(that.files[0]); // set src to file url
+
+            console.log(imageData.data, imageData.width, imageData.height);
+            var QR = jsQR(imageData.data, imageData.width, imageData.height);
             console.log(QR);
             if (QR) {
-              console.log("", QR);
+              console.log(QR);
             }
           });
           //img.onload = imageIsLoaded; // optional onload event listener
@@ -575,20 +587,6 @@
 
     function imageIsLoaded(e) { alert(e); }
   </script>
-};
-jQuery('#qrcode').qrcode({
-    text  : "hapoo"
-  });
-  var getHash = firebase.functions().httpsCallable('getHash');
-getHash().then(function(result) {
-  // Read result of the Cloud Function.
-  var sanitizedMessage = result.data.text;
-  console.log(sanitizedMessage);
-  // ...
-});
- 
-})
-</script>
 
 </body>
 
