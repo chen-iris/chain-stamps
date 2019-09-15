@@ -1,3 +1,0 @@
-[submodule "public/public/jquery-qrcode"]
-	path = public/public/jquery-qrcode
-	url = https://github.com/davidshimjs/qrcodejs.git
