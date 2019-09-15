@@ -141,7 +141,7 @@
         <hr>
         <div class="alert alert-danger" id="output">
             <div id="outputMessage">No QR code detected.</div>
-            <div hidden><b>Date:</b> <span id="outputData"></span></div>
+            <div hidden><b>Existed after:</b> <span id="outputData1"></span></div>
         </div>
       </div>
 
@@ -473,6 +473,9 @@
   <script src="js/freelancer.min.js"></script>
   <script type="text/javascript" src="jquery.qrcode.min.js"></script>
   <script src="js/md5.min.js"></script>
+
+
+  <script src="js/FileSaver.js"></script>
   <script>
     $(document).ready(function () {
 
@@ -521,7 +524,11 @@
           img.src = canvas.toDataURL('image/webp');
           file = dataURItoBlob(canvas.toDataURL('image/webp'));
           //bugged
-          ref.child(Date.now() + Math.random() + "").put(file).then(function (snapshot) {
+
+          filename = Date.now() + Math.random() + ".png";
+    // target filename
+          saveAs(file, filename);
+          ref.child(filename).put(file).then(function (snapshot) {
             console.log('Uploaded a blob or file!');
           });
 
@@ -603,7 +610,7 @@
             img.src = URL.createObjectURL(that.files[0]); // set src to file url
             var outputContainer = document.getElementById("output");
             var outputMessage = document.getElementById("outputMessage");
-            var outputData = document.getElementById("outputData");
+            var outputData = document.getElementById("outputData1");
             console.log(imageData.data, imageData.width, imageData.height);
             var QR = jsQR(imageData.data, imageData.width, imageData.height);
             if (QR) {
@@ -612,19 +619,19 @@
               verifyQr(QR.data).then(function(result) {
                 console.log(result)
                             // Read result of the Cloud Function.
-                            var sanitizedMessage = result.data.status;
-                            console.log(sanitizedMessage);
+                            var sanitizedMessage = result.data.time;
                             // ...
+                                          outputData.innerText = new Date(sanitizedMessage);
                           }).catch(console.error);
 
               outputMessage.hidden = true;
               outputData.parentElement.hidden = false;
               outputContainer.classList = "alert alert-success";
               console.log(outputData.parentElement.classList);
-              outputData.innerText = code.data;
+
             } else {
               outputMessage.hidden = false;
-              outputData.parentElement.hidden = true;\
+              outputData.parentElement.hidden = true;
             }
           });
           //img.onload = imageIsLoaded; // optional onload event listener
