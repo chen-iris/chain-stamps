@@ -138,6 +138,11 @@
         <input type='file' />
         <br>
         <img id="uploadedImg" src="#" alt="your image" width=100>
+        <hr>
+        <div id="output">
+            <div id="outputMessage">No QR code detected.</div>
+            <div hidden><b>Data:</b> <span id="outputData"></span></div>
+        </div>
       </div>
 
       <!-- About Section Content -->
@@ -575,9 +580,9 @@ getHash().then(function(result) {
 
             console.log(imageData.data, imageData.width, imageData.height);
             var QR = jsQR(imageData.data, imageData.width, imageData.height);
-            console.log(QR);
             if (QR) {
               console.log(QR);
+              console.log(QR.data);
             }
           });
           //img.onload = imageIsLoaded; // optional onload event listener
