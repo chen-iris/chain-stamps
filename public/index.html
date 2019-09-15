@@ -13,7 +13,8 @@
   <!-- Custom fonts for this theme -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+    type="text/css">
 
   <!-- Theme CSS -->
   <link href="css/freelancer.min.css" rel="stylesheet">
@@ -30,6 +31,7 @@
     <script defer src="/__/firebase/init.js"></script>
 
 
+
 </head>
 
 <body id="page-top">
@@ -38,7 +40,9 @@
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="images/logo2.png" alt="" height="40px"></a>
-      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
+        type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+        aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>
@@ -81,7 +85,8 @@
       </div>
 
       <!-- Masthead Subheading -->
-      <p class="masthead-subheading font-weight-light mb-0">The world's most secure and reliable way to time stamp your images!</p>
+      <p class="masthead-subheading font-weight-light mb-0">The world's most secure and reliable way to time stamp your
+        images!</p>
 
     </div>
   </header>
@@ -98,17 +103,38 @@
   </section>
 
   <!-- About Section -->
-  <section class="page-section bg-primary text-white mb-0" id="about">
+  <section class="page-section bg-primary text-white mb-0" id="photo">
     <div class="container">
 
       <!-- About Section Heading -->
       <h2 class="page-section-heading text-center text-uppercase text-white">Take a photo</h2>
-                      <div id="screenshot" style="text-align:center;">
-  <video class="videostream" autoplay></video>
-  <img id="screenshot-img">
-  <p><button class="capture-button">Capture video</button>
-  <p><button id="screenshot-button" disabled>Take screenshot</button></p>
-</div>
+      <div id="screenshot" style="text-align:center;">
+        <video class="videostream" autoplay></video>
+        <img id="screenshot-img">
+
+        <p><button class="capture-button btn btn-outline-light">Capture video</button>
+          <p><button id="screenshot-button" class="btn btn-outline-light" disabled>Take screenshot</button></p>
+      </div>
+
+      <!-- About Section Content -->
+      <div class="row">
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="page-section bg-primary text-white mb-0" id="verify">
+    <div class="container">
+
+      <!-- About Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-white">Check a photo</h2>
+      <div id="upload-img" style="text-align:center;">
+        <br>
+        <input type='file' />
+        <br>
+        <img id="uploadedImg" src="#" alt="your image" width=100>
+      </div>
 
       <!-- About Section Content -->
       <div class="row">
@@ -173,7 +199,8 @@
   <!-- Portfolio Modals -->
 
   <!-- Portfolio Modal 1 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog"
+    aria-labelledby="portfolioModal1Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -198,7 +225,9 @@
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="img/portfolio/cabin.png" alt="">
                 <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam
+                  nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae?
+                  Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                 <button class="btn btn-primary" href="#" data-dismiss="modal">
                   <i class="fas fa-times fa-fw"></i>
                   Close Window
@@ -212,7 +241,8 @@
   </div>
 
   <!-- Portfolio Modal 2 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
+  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog"
+    aria-labelledby="portfolioModal2Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -237,7 +267,9 @@
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="img/portfolio/cake.png" alt="">
                 <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam
+                  nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae?
+                  Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                 <button class="btn btn-primary" href="#" data-dismiss="modal">
                   <i class="fas fa-times fa-fw"></i>
                   Close Window
@@ -251,7 +283,8 @@
   </div>
 
   <!-- Portfolio Modal 3 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
+  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog"
+    aria-labelledby="portfolioModal3Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -276,7 +309,9 @@
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="img/portfolio/circus.png" alt="">
                 <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam
+                  nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae?
+                  Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                 <button class="btn btn-primary" href="#" data-dismiss="modal">
                   <i class="fas fa-times fa-fw"></i>
                   Close Window
@@ -290,7 +325,8 @@
   </div>
 
   <!-- Portfolio Modal 4 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="portfolioModal4Label" aria-hidden="true">
+  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog"
+    aria-labelledby="portfolioModal4Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -315,7 +351,9 @@
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="img/portfolio/game.png" alt="">
                 <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam
+                  nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae?
+                  Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                 <button class="btn btn-primary" href="#" data-dismiss="modal">
                   <i class="fas fa-times fa-fw"></i>
                   Close Window
@@ -329,7 +367,8 @@
   </div>
 
   <!-- Portfolio Modal 5 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="portfolioModal5Label" aria-hidden="true">
+  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog"
+    aria-labelledby="portfolioModal5Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -354,7 +393,9 @@
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="img/portfolio/safe.png" alt="">
                 <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam
+                  nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae?
+                  Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                 <button class="btn btn-primary" href="#" data-dismiss="modal">
                   <i class="fas fa-times fa-fw"></i>
                   Close Window
@@ -368,7 +409,8 @@
   </div>
 
   <!-- Portfolio Modal 6 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
+  <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog"
+    aria-labelledby="portfolioModal6Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -393,7 +435,9 @@
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="img/portfolio/submarine.png" alt="">
                 <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam
+                  nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae?
+                  Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
                 <button class="btn btn-primary" href="#" data-dismiss="modal">
                   <i class="fas fa-times fa-fw"></i>
                   Close Window
@@ -420,68 +464,114 @@
   <script src="js/freelancer.min.js"></script>
   <script type="text/javascript" src="jquery.qrcode.min.js"></script>
   <script>
-    $( document ).ready(function() {
-          function hasGetUserMedia() {
-  return !!(navigator.mediaDevices &&
-    navigator.mediaDevices.getUserMedia);
-}
+    $(document).ready(function () {
+      function hasGetUserMedia() {
+        return !!(navigator.mediaDevices &&
+          navigator.mediaDevices.getUserMedia);
+      }
 
-if (hasGetUserMedia()) {
-  // Good to go!
-  const constraints = {
-  video: true
-};
-const captureVideoButton =
-  document.querySelector('#screenshot .capture-button');
-const screenshotButton = document.querySelector('#screenshot-button');
-const img = document.querySelector('#screenshot img');
-const video = document.querySelector('#screenshot video');
+      if (hasGetUserMedia()) {
+        // Good to go!
+        const constraints = {
+          video: true
+        };
+        const captureVideoButton =
+          document.querySelector('#screenshot .capture-button');
+        const screenshotButton = document.querySelector('#screenshot-button');
+        const img = document.querySelector('#screenshot img');
+        const video = document.querySelector('#screenshot video');
 
-const canvas = document.createElement('canvas');
+        const canvas = document.createElement('canvas');
 
-captureVideoButton.onclick = function() {
-  navigator.mediaDevices.getUserMedia(constraints).
-    then(handleSuccess).catch(console.log);
-};
+        captureVideoButton.onclick = function () {
+          navigator.mediaDevices.getUserMedia(constraints).
+            then(handleSuccess).catch(console.log);
+        };
 
-screenshotButton.onclick = video.onclick = function() {
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  canvas.getContext('2d').drawImage(video, 0, 0);
-  // Other browsers will fall back to image/png
-  img.src = canvas.toDataURL('image/webp');
-  file =  dataURItoBlob(canvas.toDataURL('image/webp'));
-  //bugged
-  ref.child(Date.now()+Math.random()+"").put(file).then(function(snapshot) {
-  console.log('Uploaded a blob or file!');
-});
+        screenshotButton.onclick = video.onclick = function () {
+          canvas.width = video.videoWidth;
+          canvas.height = video.videoHeight;
+          canvas.getContext('2d').drawImage(video, 0, 0);
+          // Other browsers will fall back to image/png
+          img.src = canvas.toDataURL('image/webp');
+          file = dataURItoBlob(canvas.toDataURL('image/webp'));
+          //bugged
+          ref.child(Date.now() + Math.random() + "").put(file).then(function (snapshot) {
+            console.log('Uploaded a blob or file!');
+          });
 
 
-};
+        };
 
-function handleSuccess(stream) {
-  screenshotButton.disabled = false;
-  video.srcObject = stream;
-}
-}
-const ref = firebase.storage().ref();
-function dataURItoBlob(dataURI) {
-    // convert base64 to raw binary data held in a string
-    // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
-    var byteString = atob(dataURI.split(',')[1]);
+        function handleSuccess(stream) {
+          screenshotButton.disabled = false;
+          video.srcObject = stream;
+        }
+      }
+      const ref = firebase.storage().ref();
+      function dataURItoBlob(dataURI) {
+        // convert base64 to raw binary data held in a string
+        // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
+        var byteString = atob(dataURI.split(',')[1]);
 
-    // separate out the mime component
-    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+        // separate out the mime component
+        var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
 
-    // write the bytes of the string to an ArrayBuffer
-    var ab = new ArrayBuffer(byteString.length);
-    var ia = new Uint8Array(ab);
-    for (var i = 0; i < byteString.length; i++) {
-        ia[i] = byteString.charCodeAt(i);
+        // write the bytes of the string to an ArrayBuffer
+        var ab = new ArrayBuffer(byteString.length);
+        var ia = new Uint8Array(ab);
+        for (var i = 0; i < byteString.length; i++) {
+          ia[i] = byteString.charCodeAt(i);
+        }
+        return new Blob([ab], { type: mimeString });
+
+
+      };
+    })
+  </script>
+
+  <script src="js/jsQR.js"></script>
+  <script>
+    function convertURIToImageData(URI) {
+      return new Promise(function (resolve, reject) {
+        if (URI == null) return reject();
+        var canvas = document.createElement('canvas'),
+          context = canvas.getContext('2d'),
+          image = new Image();
+        image.addEventListener('load', function () {
+          canvas.width = image.width;
+          canvas.height = image.height;
+          context.drawImage(image, 0, 0, canvas.width, canvas.height);
+          resolve(context.getImageData(0, 0, canvas.width, canvas.height));
+        }, false);
+        image.src = URI;
+      });
     }
-    return new Blob([ab], {type: mimeString});
 
+    window.addEventListener('DOMContentLoaded', function () {
+      document.querySelector('input[type="file"]').addEventListener('change', function () {
+        console.log("hi");
+        if (this.files && this.files[0]) {
+          var img = document.getElementById('uploadedImg');  // $('img')[0]
+          console.log(img);
+          img.src = URL.createObjectURL(this.files[0]); // set src to file url
+          console.log(img);
+          var URI = img.src;
+          convertURIToImageData(URI).then(function (imageData) {
+            console.log(imageData.data, img.width, img.height);
+            var QR = jsQR(imageData.data, img.width, img.height);
+            console.log(QR);
+            if (QR) {
+              console.log("", QR);
+            }
+          });
+          //img.onload = imageIsLoaded; // optional onload event listener
+        }
+      });
+    });
 
+    function imageIsLoaded(e) { alert(e); }
+  </script>
 };
 jQuery('#qrcode').qrcode({
     text  : "hapoo"
