@@ -509,7 +509,9 @@
       if (hasGetUserMedia()) {
         // Good to go!
         const constraints = {
-          video: true
+          video: {
+			facingMode: 'environment'
+		  }
         };
         const captureVideoButton =
           document.querySelector('#screenshot .capture-button');
